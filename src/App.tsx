@@ -58,6 +58,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>자산 현황</h1>
+      <p>{"합계 : ₩" + getFormDataList().reduce((acc, cur) => acc + cur.price * cur.amount, 0)
+          .toLocaleString('ko-KR').split(".")[0]}</p>
       <button onClick={handleAddData}>추가</button>
       {formDataList.map((formData) => (
         <Form key={formData.id} id={formData.id} />
